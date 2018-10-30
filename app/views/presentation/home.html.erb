@@ -1,27 +1,19 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/home">The Gossip</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="/team">Team <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/contact">Contact</a>
-      </li>        
-      <li class="nav-item">
-        <a class="nav-link" href="/home">Home</a>
-      </li> 
-    </ul>
+<h1>Home</h1>
+<p>Welcome
+  <%= params[:first_name] %>!</p>
+<h3>All Gossips :</h3>
+<div class="row">
+  <% @gossip.each do |gossip| %>
+  <div class="card w-25">
+    <div class="card-body">
+      <h5 class="card-title">
+        <%= gossip.author %>
+      </h5>
+      <p class="card-text">
+        <%= gossip.content %>
+      </p>
+      <a href="/gossips/<%= gossip.id %>" class="btn btn-primary">Read more</a>
+    </div>
   </div>
-</nav>
-
-<h1> Welcome ! </h1>
-<p>
-   <% @gossip.each do |gossip| %>
-  <br> <%= gossip.author %>
-  <%= gossip.content %>
-  <%end%>
-</p>
+  <% end %>
+</div>

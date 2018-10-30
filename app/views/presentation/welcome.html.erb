@@ -19,15 +19,17 @@
 </nav>
 
 
-
 <h1> Welcome, <%= params[:first_name] %> </h1>
 
-<p>
-   <% @gossip.each do |gossip| %>
-  <br> <%= gossip.author %>
-  <%= gossip.content %>
-  <%end%>
-</p>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <p><% @gossip.each do |gossip| %>
+    <%= gossip.author %>
+    <%= gossip.content %>
+    <%end%>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+    </p>
  
 
 
